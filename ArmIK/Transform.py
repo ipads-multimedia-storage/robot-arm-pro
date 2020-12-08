@@ -26,11 +26,15 @@ def leMap(x, in_min, in_max, out_min, out_max):
 def convertCoordinate(x, y, size):
     x = leMap(x, 0, size[0], 0, 640)
     x = x - 320
+    x = -x
     x_ = round(x * map_param_, 2)
+    x_ -= 1
 
     y = leMap(y, 0, size[1], 0, 480)
     y = 240 - y
+    y = -y
     y_ = round(y * map_param_ + image_center_distance, 2)
+    y_ += 1
 
     return x_, y_
 
