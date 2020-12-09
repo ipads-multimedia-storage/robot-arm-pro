@@ -41,7 +41,8 @@ def runAction(actNum):
     global online_action_times
     if actNum is None:
         return
-    actNum = "/home/pi/ArmPi/ActionGroups/" + actNum + ".d6a"
+    project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    actNum = project_dir + "/ActionGroups/" + actNum + ".d6a"
     stopRunning = False
     if os.path.exists(actNum) is True:
         if runningAction is False:

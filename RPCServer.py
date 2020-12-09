@@ -2,7 +2,8 @@
 # coding=utf8
 import os
 import sys
-sys.path.append('/home/pi/ArmPi/')
+project_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(project_dir)
 import time
 import logging
 import threading

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # encoding:utf-8
 import sys
-sys.path.append('/home/pi/ArmPi/')
+import os
+project_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(project_dir)
 import cv2
 import time
 import threading

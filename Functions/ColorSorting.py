@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 # coding=utf8
 import sys
-sys.path.append('/home/pi/ArmPi/')
-sys.path.append('/home/pi/ArmPi/ObjectDetectionServer')
+import os
+project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_dir)
+sys.path.append(project_dir + '/ObjectDetectionServer')
 import cv2
 import time
 import Camera

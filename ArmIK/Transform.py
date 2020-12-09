@@ -2,7 +2,9 @@
 # encoding:utf-8
 import cv2
 import sys
-sys.path.append('/home/pi/ArmPi/')
+import os
+project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_dir)
 import math
 import numpy as np
 from CameraCalibration.CalibrationConfig import *

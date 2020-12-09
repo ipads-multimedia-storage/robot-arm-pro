@@ -23,6 +23,6 @@ Tips:
 ----------------------------------------------------------
 ''')
 
-# 动作组需要保存在路径/home/pi/ArmPi/ActionGroups下
+# 动作组需要保存在目录ActionGroups下
 AGC.runAction('1') # 参数为动作组的名称，不包含后缀，以字符形式传入
 AGC.runAction('2')

@@ -1,6 +1,7 @@
 import sys
-sys.path.append('/home/pi/ArmPi/')
 import os
+project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_dir)
 from io import BytesIO
 from concurrent import futures
 

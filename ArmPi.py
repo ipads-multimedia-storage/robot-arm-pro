@@ -29,7 +29,8 @@ def startArmPi():
     threading.Thread(target=MjpgServer.startMjpgServer,
                      daemon=True).start()  # mjpg流服务器
     
-    loading_picture = cv2.imread('/home/pi/ArmPi/CameraCalibration/loading.jpg')
+    project_dir = os.path.dirname(os.path.abspath(__file__))
+    loading_picture = cv2.imread(project_dir + '/CameraCalibration/loading.jpg')
     cam = Camera.Camera()  # 相机读取
     Running.cam = cam
 
