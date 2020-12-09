@@ -147,8 +147,9 @@ def move():
     global get_roi
     global unreachable
     global __isRunning
-    global detect_color
     global start_pick_up
+    # below is the target color, angle and position
+    global detect_color
     global rotation_angle
     global world_X, world_Y
     
@@ -259,7 +260,6 @@ def run(img):
     global count
     global get_roi
     global center_list
-    global unreachable
     global __isRunning
     global start_pick_up
     global rotation_angle
@@ -284,8 +284,11 @@ def run(img):
         frame_gb = getMaskROI(frame_gb, roi, size)      
     frame_lab = cv2.cvtColor(frame_gb, cv2.COLOR_BGR2LAB)  # 将图像转换到LAB空间
 
+    # the color of the max contour
     color_area_max = None
+    # the area of the max contour
     max_area = 0
+    # the index of the max contour
     areaMaxContour_max = 0
     
     if not start_pick_up:
@@ -335,6 +338,7 @@ def run(img):
                         start_count_t1 = False
                         t1 = time.time()
                     if time.time() - t1 > 1:
+                        # has been at the same position for more than 1 second, start to pick up
                         rotation_angle = rect[2] 
                         start_count_t1 = True
                         world_X, world_Y = np.mean(np.array(center_list).reshape(count, 2), axis=0)
@@ -347,8 +351,10 @@ def run(img):
                     center_list = []
                     count = 0
 
+                # print("color list:", color_list)
                 if len(color_list) == 3:  #多次判断
                     # 取平均值
+                    # XXX: weird to get the mean value, shouldn't get the value that appears the most time?
                     color = int(round(np.mean(np.array(color_list))))
                     color_list = []
                     if color == 1:
