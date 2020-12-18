@@ -4,7 +4,7 @@ import sys
 import os
 project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_dir)
-sys.path.append(project_dir + '/ObjectDetectionServer')
+sys.path.append(project_dir + '/ObjectDetectionService')
 import cv2
 import time
 import Camera
@@ -14,7 +14,7 @@ from ArmIK.Transform import *
 from ArmIK.ArmMoveIK import *
 import HiwonderSDK.Board as Board
 from CameraCalibration.CalibrationConfig import *
-from ObjectDetectionServer.lib import *
+from ObjectDetectionService.lib import *
 
 if sys.version_info.major == 2:
     print('Please run this program with python3!')
@@ -246,7 +246,7 @@ th = threading.Thread(target=move)
 th.setDaemon(True)
 th.start()    
 
-od_client = ImageClient('localhost:30307')
+od_client = ObjectDetectionClient('localhost:30307')
 t1 = 0
 center_list = []
 last_x, last_y = 0, 0
