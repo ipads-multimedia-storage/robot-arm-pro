@@ -268,7 +268,8 @@ def run(img):
     if not start_pick_up:
         response = od_client.upload(img)
         if response:
-            img, world_x, world_y, color_area_max, angle = response
+            img, img_x, img_y, color_area_max, angle = response
+            world_x, world_y = convertCoordinate(img_x, img_y, size)
 
             print("coordinate: ({}, {})".format(world_x, world_y))
             print("rotation angle: {}".format(angle))
